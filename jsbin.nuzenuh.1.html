@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2021 by toppanto (http://jsbin.com/nuzenuh/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+ 
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100&display=swap" rel="stylesheet">
+    <title>Szinora</title>
+<style id="jsbin-css">
+* { margin: 0; padding: 0; }
+html, body {
+  height: 100%;
+}
+
+#clock {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 70px;
+  color: ;
+  margin-top: -35px;
+}
+
+</style>
+</head>
+<body>
+  <div id="clock"></div>
+<script id="jsbin-javascript">
+function colorClock(){
+  var date = new Date();
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var seconds = date.getSeconds();
+
+  if (hours <= 9) {
+    hours = '0' + hours;
+  }
+  if (minutes <= 9) {
+    minutes = '0' + minutes;
+  }
+  if (seconds <= 9) {
+    seconds = '0' + seconds;
+  }
+
+  var clockFace = hours + ':' + minutes + ':' + seconds;
+  var hexColor = '#' + hours + minutes + seconds;
+  document.getElementById('clock').innerHTML = clockFace;
+  document.body.style.background = hexColor;
+  document.getElementById('clock').innerHTML = clockFace.fontcolor(invertHex);
+  
+  
+  function invertHex(hexColor) {
+  return (Number('0x1${hex}') ^ 0xFFFFFF).toString(16).substr(1).toUpperCase()
+  }
+  
+}
+
+setInterval(function() {
+  colorClock();
+}, 1000);
+
+
+console.log(colorClock);
+
+colorClock(); 
+ 
+ 
+
+</script>
+</body>
+</html>
